@@ -6,13 +6,13 @@ HTML
 2. p row to write instructions to, prefilled with span saying choose a character to begin
 3. div row Available characters presented as cards. p row Your character text
 4. div row Enemy row presented as cards
-5. p row Fight instruction text
+5. p row  instruction text
 6. div row Attack button, not enabled at first
 7. p row Defender text
 8. div row Defender row presented as cards
 9. p row wih real time game play stats regarding healthPoints, attackPower, counterAttackPower
 
-**character images to be setup on cards with stats in the border? 
+**character images to be setup on cards with stats in the border? - nice to have
 
 Pseudo
 1. Build HTML and CSS
@@ -57,7 +57,8 @@ Pseudo
 	b. counter attack function removes health points from your character
 	c. stats div shows counter attack effects
 	d. at end of each counter attack function, check for your character health points and, 
-		i. if <=0, remove character from html
-			a. game over
+		i. if <=0, g
 			b. instructions div shows game over and to chose a new character to begin
-		ii. else counter attack function triggers attack function
+            c. stop functions and reset game
+		ii. else counter attack function ends until user presses attack button and, 
+            a. new text replaces instruction area saying click attack to attack   
