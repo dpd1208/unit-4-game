@@ -4,13 +4,14 @@ RPG Game
 HTML
 1. h1 row - Name of game
 2. p row to write instructions to, prefilled with span saying choose a character to begin
-3. div row Available characters presented as cards. p row Your character text
-4. div row Enemy row presented as cards
-5. p row  instruction text
-6. div row Attack button, not enabled at first
-7. p row Defender text
+3. div row Available characters presented as cards. 
+4. p row Your character text
+5. div row Enemy row presented as cards
+6. p row  Enemy text
+7. div row Attack button, not enabled at first
 8. div row Defender row presented as cards
-9. p row wih real time game play stats regarding healthPoints, attackPower, counterAttackPower
+9. p row Defender text
+10. p row wih real time game play stats regarding healthPoints, attackPower, counterAttackPower
 
 **character images to be setup on cards with stats in the border? - nice to have
 
