@@ -22,37 +22,76 @@
 
 <!---instructions, text replaced as game progresses-->
 <div class="row">
-    <p><span  id="instructions">Chose a character to start the game</span></p>
+    <p><span id="instructions">Chose a character to start the game</span></p>
 </div>
 
 <!---characters section-->
+<div class="row"><span id="characters">
+        <div class="card-deck">
+                <div class="card" id="poseidon">
+                  <img class="card-img-top" src="assets/images/poseidon.jpg" alt="Poseidon">
+                  <div class="card-body">
+                    <h5 class="card-title">Poseidon</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="poseidon-text-muted"></small>
+                  </div>
+                </div>
+                <div class="card" id="athena">
+                  <img class="card-img-top" src="assets/images/athena.png" alt="Athena">
+                  <div class="card-body">
+                    <h5 class="card-title">Athena</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="athena-text-muted"></small>
+                  </div>
+                </div>
+                <div class="card" id="artemis">
+                  <img class="card-img-top" src="assets/images/artemis.jpg" alt="Artemis">
+                  <div class="card-body">
+                    <h5 class="card-title">Artemis</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="artemis-text-muted"></small>
+                  </div>
+                </div>
+                <div class="card" id="ares">
+                  <img class="card-img-top" src="assets/images/ares.png" alt="Ares"">
+                  <div class="card-body">
+                    <h5 class="card-title">Ares</h5>
+                  </div>
+                  <div class="card-footer">
+                    <small class="ares-text-muted"></small>
+                  </div>
+                </div>
+              </div>
+        </span>
+</div> 
+
 <div class="row">
-    <div class="row"><span id="characters"></span></div> 
-    <div class="row">
-        <p>Your Character</p>
-    </div>
+    <p>Your Character</p>
 </div>
 
+
 <!---enemies section-->
+<div class="row"><span id="enemies"></span></div> 
 <div class="row">
-    <div class="row"><span id="enemies"></span></div> 
-    <div class="row">
-        <p>Enemies</p>
-    </div>
+    <p>Enemies</p>
 </div>
+
 
 <!---attack button-->
 <div class="row">
-    <div id=button value="Attack" onclick="function(attack)"></div>
+  <button type="button" class="btn btn-primary btn-lg" on>Attack</button>
 </div>
 
 <!---defender section-->
+
+<div class="row"><span id="defender"></span></div> 
 <div class="row">
-        <div class="row"><span id="defender"></span></div> 
-        <div class="row">
-            <p>Defender</p>
-    </div>
+    <p>Defender</p>
 </div>
+
 
 <!---game stats, text replaced as game progresses-->
 <div class="row">

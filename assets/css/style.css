@@ -1,0 +1,32 @@
+.card {
+    max-height:13em;
+    max-width:8em;
+    display: inline-block;
+}
+
+.card-img-top {
+    max-height:8em;
+    max-width:8em;
+}
+
+.card-body {
+    padding: 0
+}
+
+.card-title {
+    font-size:1em;
+    margin: 0;
+    text-align: center;
+
+}
+
+.card-footer {
+    font-size:.7em;
+    padding: 0;
+    text-align: center;
+}
+
+#button {
+    min-width: 1em;
+    min-height: 1em;
+}
