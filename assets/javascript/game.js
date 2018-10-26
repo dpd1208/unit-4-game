@@ -123,7 +123,6 @@ $(document).ready(function () {
                 $("#athena").off("click");
                 $("#artemis").off("click");
                 $("#ares").off("click");
-                $("#btn").on("click");
                 $("#game-stats").html("It is time to battle Poseidon!");
                 battle();
             })
@@ -138,7 +137,6 @@ $(document).ready(function () {
                 $("#poseidon").off("click");
                 $("#artemis").off("click");
                 $("#ares").off("click");
-                $("#btn").on("click");
                 $("#game-stats").html("It is time to battle Athena!");
                 battle();
             })
@@ -153,7 +151,6 @@ $(document).ready(function () {
                 $("#athena").off("click");
                 $("#poseidon").off("click");
                 $("#ares").off("click");
-                $("#btn").on("click");
                 $("#game-stats").html("It is time to battle Artemis!");
                 battle();
             })
@@ -168,7 +165,6 @@ $(document).ready(function () {
                 $("#athena").off("click");
                 $("#artemis").off("click");
                 $("#poseidon").off("click");
-                $("#btn").on("click");
                 $("#game-stats").html("It is time to battle Ares!");
                 battle();
             })
@@ -177,6 +173,7 @@ $(document).ready(function () {
 
     // Game Stage 3 - Battle
     function battle() {
+        $(".btn").removeAttr("disabled", "disabled");
         $(".btn").click(function () {
 
             //Poseidon vs. Athena
@@ -184,14 +181,16 @@ $(document).ready(function () {
                 athena.healthPoints = (athena.healthPoints - poseidon.attackPower);
                 $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Athena and did " + poseidon.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                $(".btn").off("click");
+                setTimeout(counterAttack, 1600);
             }
             //Poseidon vs. Artemis
             if ((poseidon.isCharacter) && (artemis.isEnemy)) {
                 artemis.healthPoints = (artemis.healthPoints - poseidon.attackPower);
                 $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Artemis and did " + poseidon.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                $(".btn").off("click");
+                setTimeout(counterAttack, 1600);
             }
 
             //Poseidon vs. Ares
@@ -199,23 +198,26 @@ $(document).ready(function () {
                 ares.healthPoints = (ares.healthPoints - poseidon.attackPower);
                 $(".ares-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Ares and did " + poseidon.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
-            }
+                $(".btn").off("click");
+                setTimeout(counterAttack, 1600);
+            };
 
             // Athena vs. Poseidon
             if ((athena.isCharacter) && (poseidon.isEnemy)) {
                 poseidon.healthPoints = (poseidon.healthPoints - athena.attackPower);
                 $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Poseidon and did " + athena.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
             }
 
             // Athena vs. Artemis
             if ((athena.isCharacter) && (artemis.isEnemy)) {
                 artemis.healthPoints = (artemis.healthPoints - athena.attackPower);
                 $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
-                $("#game-stats").html("You attacked Artemis and did " + athena.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                $("#game-stats").html("You attacked Artemis and did " + athena.attackPower + " points of damage!");;
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
             }
 
             // Athena vs. Ares
@@ -223,15 +225,17 @@ $(document).ready(function () {
                 ares.healthPoints = (ares.healthPoints - athena.attackPower);
                 $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Ares and did " + athena.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
-            }
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
+            };
 
             // Artemis vs. Poseidon
             if ((artemis.isCharacter) && (poseidon.isEnemy)) {
                 poseidon.healthPoints = (poseidon.healthPoints - artemis.attackPower);
                 $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Poseidon and did " + artemis.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
             }
 
             // Artemis vs. Athena
@@ -239,22 +243,27 @@ $(document).ready(function () {
                 athena.healthPoints = (athena.healthPoints - artemis.attackPower);
                 $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Athena and did " + artemis.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
             }
 
             // Artemis vs. Ares
             if ((artemis.isCharacter) && (ares.isEnemy)) {
                 ares.healthPoints = (ares.healthPoints - artemis.attackPower);
                 $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
-                $("#game-stats").html("You attacked Ares and did " + artemis.attackPower + " points of damage!");setTimeout(counterAttack, 1000);
-                setTimeout(counterAttack, 2000);
-            }
+                $("#game-stats").html("You attacked Ares and did " + artemis.attackPower + " points of damage!");
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
+            };
+
             // Ares vs. Poseidon
             if ((ares.isCharacter) && (poseidon.isEnemy)) {
                 poseidon.healthPoints = (poseidon.healthPoints - artemis.attackPower);
                 $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Poseidon and did " + ares.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                ares.attackPower =  (ares.attackPower + 6);
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
             }
 
             // Ares vs. Athena
@@ -262,7 +271,9 @@ $(document).ready(function () {
                 athena.healthPoints = (athena.healthPoints - ares.attackPower);
                 $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Athena and did " + ares.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
+                ares.attackPower =  (ares.attackPower + 6);
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
             }
 
             // Ares vs. Artemis
@@ -270,105 +281,119 @@ $(document).ready(function () {
                 artemis.healthPoints = (artemis.healthPoints - ares.attackPower);
                 $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                 $("#game-stats").html("You attacked Artemis and did " + ares.attackPower + " points of damage!");
-                setTimeout(counterAttack, 2000);
-            }
+                ares.attackPower =  (ares.attackPower + 6);
+                $(".btn").attr("disabled", "disabled");
+                setTimeout(counterAttack, 1600);
+            };
         
         // Counter Attack 
         function counterAttack() {
 
             //Poseidon vs. Athena - Counter
             if ((poseidon.isCharacter) && (athena.isEnemy)) {
+                poseidon.attackPower =  (poseidon.attackPower + 9);
                 poseidon.healthPoints = (poseidon.healthPoints - athena.counterAttackPower);
                 $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                 $("#game-stats").html("Athena countered and did " + athena.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
             //Poseidon vs. Artemis - Counter
             if ((poseidon.isCharacter) && (artemis.isEnemy)) {
-                artemis.healthPoints = (artemis.healthPoints - artemis.counterAttackPower);
+                poseidon.attackPower =  (poseidon.attackPower + 9);
+                poseidon.healthPoints = (poseidon.healthPoints - artemis.counterAttackPower);
                 $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                 $("#game-stats").html("Artemis countered and did " + artemis.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             //Poseidon vs. Ares - Counter
             if ((poseidon.isCharacter) && (ares.isEnemy)) {
+                poseidon.attackPower =  (poseidon.attackPower + 9);
                 poseidon.healthPoints = (poseidon.healthPoints - ares.counterAttackPower);
                 $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                 $("#game-stats").html("Ares countered and did " + ares.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Athena vs. Poseidon - Counter
             if ((athena.isCharacter) && (poseidon.isEnemy)) {
+                athena.attackPower =  (athena.attackPower + 8);
                 athena.healthPoints = (athena.healthPoints - poseidon.counterAttackPower);
                 $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("Poseidon countered and did " + poseidon.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Athena vs. Artemis - Counter
             if ((athena.isCharacter) && (artemis.isEnemy)) {
+                athena.attackPower =  (athena.attackPower + 8);
                 athena.healthPoints = (athena.healthPoints - artemis.counterAttackPower);
                 $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("Artemis countered and did " + artemis.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Athena vs. Ares - Counter
             if ((athena.isCharacter) && (ares.isEnemy)) {
+                athena.attackPower =  (athena.attackPower + 8);
                 athena.healthPoints = (athena.healthPoints - ares.counterAttackPower);
                 $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                 $("#game-stats").html("Ares countered and did " + ares.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Artemis vs. Poseidon - Counter
             if ((artemis.isCharacter) && (poseidon.isEnemy)) {
+                artemis.attackPower =  (artemis.attackPower + 7);
                 artemis.healthPoints = (artemis.healthPoints - poseidon.counterAttackPower);
                 $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                 $("#game-stats").html("Poseidon countered and did " + poseidon.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Artemis vs. Athena - Counter
             if ((artemis.isCharacter) && (athena.isEnemy)) {
+                artemis.attackPower =  (artemis.attackPower + 7);
                 athena.healthPoints = (athena.healthPoints - artemis.counterAttackPower);
                 $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                 $("#game-stats").html("Athena countered and did " + athena.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Artemis vs. Ares - Counter
             if ((artemis.isCharacter) && (ares.isEnemy)) {
+                artemis.attackPower =  (artemis.attackPower + 7);
                 artemis.healthPoints = (artemis.healthPoints - ares.counterAttackPower);
                 $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                 $("#game-stats").html("Ares countered and did " + ares.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Ares vs. Poseidon - Counter
             if ((ares.isCharacter) && (poseidon.isEnemy)) {
+                ares.attackPower =  (ares.attackPower + 6);
                 ares.healthPoints = (ares.healthPoints - poseidon.counterAttackPower);
                 $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
                 $("#game-stats").html("Poseidon countered and did " + poseidon.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Ares vs. Athena - Counter
             if ((ares.isCharacter) && (athena.isEnemy)) {
+                ares.attackPower =  (ares.attackPower + 6);
                 ares.healthPoints = (ares.healthPoints - athena.counterAttackPower);
                 $("#game-stats").html("Athena countered and did " + athena.counterAttackPower + " points of damage!");
                 $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
 
             // Ares vs. Artemis - Counter
             if ((ares.isCharacter) && (artemis.isEnemy)) {
+                ares.attackPower =  (ares.attackPower + 6);
                 ares.healthPoints = (ares.healthPoints - artemis.counterAttackPower);
                 $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
                 $("#game-stats").html("Artemis countered and did " + artemis.counterAttackPower + " points of damage!");
-                setTimeout(battle, 1000);
+                setTimeout(battle, 300);
             }
        }
     })};
