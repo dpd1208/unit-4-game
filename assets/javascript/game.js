@@ -4,8 +4,8 @@ $(document).ready(function reset() {
     // Poseidon Stats
     var poseidon = {
         "healthPoints": 100,
-        "baseAttackPower": 9,
-        "attackPower": 9,
+        "baseAttackPower": 11,
+        "attackPower": 11,
         "counterAttackPower": 17,
         "card": $("#poseidon"),
         "isCharacter": false,
@@ -15,8 +15,8 @@ $(document).ready(function reset() {
     // Athena Stats
     var athena = {
         "healthPoints": 110,
-        "baseAttackPower": 8,
-        "attackPower": 8,
+        "baseAttackPower": 10,
+        "attackPower": 10,
         "counterAttackPower": 18,
         "card": $("#athena"),
         "isCharacter": false,
@@ -26,8 +26,8 @@ $(document).ready(function reset() {
     // Artemis Stats
     var artemis = {
         "healthPoints": 120,
-        "baseAttackPower": 7,
-        "attackPower": 7,
+        "baseAttackPower": 9,
+        "attackPower": 9,
         "counterAttackPower": 19,
         "card": $("#artemis"),
         "isCharacter": false,
@@ -37,8 +37,8 @@ $(document).ready(function reset() {
     // Ares Stats
     var ares = {
         "healthPoints": 130,
-        "baseAttackPower": 6,
-        "attackPower": 6,
+        "baseAttackPower": 8,
+        "attackPower": 8,
         "counterAttackPower": 20,
         "card": $("#ares"),
         "isCharacter": false,
@@ -54,7 +54,7 @@ $(document).ready(function reset() {
 
     // Game Stage 1 - Choose Character
     function chooseCharacter() {
-
+        $("#instructions").html("Choose a Character")
         var enemies = 3;
 
         // Your Character = Poseidon
@@ -112,6 +112,7 @@ $(document).ready(function reset() {
 
     // Game Stage 2 - Choose Defender from Enemies
     function chooseDefender() {
+        $("#instructions").html("Select your Opponent")
 
         // Defender = Poseidon
         if (poseidon.card.hasClass("enemy")) {
@@ -172,6 +173,7 @@ $(document).ready(function reset() {
 
         // Game Stage 3 - Battle
         function battle() {
+            $("#instructions").html("Press the Button to Attack")
             $(".btn").removeAttr("disabled", "disabled");
             $(".btn").click(function () {
 
@@ -394,7 +396,7 @@ $(document).ready(function reset() {
 
                     //Poseidon vs. Athena - Counter
                     if ((athena.healthPoints >= 1) && (poseidon.isCharacter) && (athena.isEnemy)) {
-                        poseidon.attackPower = (poseidon.attackPower + 9);
+                        poseidon.attackPower = (poseidon.attackPower + poseidon.baseAttackPower);
                         poseidon.healthPoints = (poseidon.healthPoints - athena.counterAttackPower);
                         $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                         $("#game-stats").html("Athena countered and did " + athena.counterAttackPower + " points of damage!");
@@ -408,7 +410,7 @@ $(document).ready(function reset() {
 
                     //Poseidon vs. Artemis - Counter
                     if ((artemis.healthPoints >= 1) && (poseidon.isCharacter) && (artemis.isEnemy)) {
-                        poseidon.attackPower = (poseidon.attackPower + 9);
+                        poseidon.attackPower = (poseidon.attackPower + poseidon.baseAttackPower);
                         poseidon.healthPoints = (poseidon.healthPoints - artemis.counterAttackPower);
                         $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                         $("#game-stats").html("Artemis countered and did " + artemis.counterAttackPower + " points of damage!");
@@ -422,7 +424,7 @@ $(document).ready(function reset() {
 
                     //Poseidon vs. Ares - Counter
                     if ((ares.healthPoints >= 1) && (poseidon.isCharacter) && (ares.isEnemy)) {
-                        poseidon.attackPower = (poseidon.attackPower + 9);
+                        poseidon.attackPower = (poseidon.attackPower + poseidon.baseAttackPower);
                         poseidon.healthPoints = (poseidon.healthPoints - ares.counterAttackPower);
                         $(".poseidon-text-muted").html("<small>" + poseidon.healthPoints + "</small>");
                         $("#game-stats").html("Ares countered and did " + ares.counterAttackPower + " points of damage!");
@@ -437,7 +439,7 @@ $(document).ready(function reset() {
 
                     // Athena vs. Poseidon - Counter
                     if ((poseidon.healthPoints >= 1) && (athena.isCharacter) && (poseidon.isEnemy)) {
-                        athena.attackPower = (athena.attackPower + 8);
+                        athena.attackPower = (athena.attackPower + athena.baseAttackPower);
                         athena.healthPoints = (athena.healthPoints - poseidon.counterAttackPower);
                         $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                         $("#game-stats").html("Poseidon countered and did " + poseidon.counterAttackPower + " points of damage!");
@@ -451,7 +453,7 @@ $(document).ready(function reset() {
 
                     // Athena vs. Artemis - Counter
                     if ((artemis.healthPoints >= 1) && (athena.isCharacter) && (artemis.isEnemy)) {
-                        athena.attackPower = (athena.attackPower + 8);
+                        athena.attackPower = (athena.attackPower + athena.baseAttackPower);
                         athena.healthPoints = (athena.healthPoints - artemis.counterAttackPower);
                         $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                         $("#game-stats").html("Artemis countered and did " + artemis.counterAttackPower + " points of damage!");
@@ -465,7 +467,7 @@ $(document).ready(function reset() {
 
                     // Athena vs. Ares - Counter
                     if ((ares.healthPoints >= 1) && (athena.isCharacter) && (ares.isEnemy)) {
-                        athena.attackPower = (athena.attackPower + 8);
+                        athena.attackPower = (athena.attackPower + athena.baseAttackPower);
                         athena.healthPoints = (athena.healthPoints - ares.counterAttackPower);
                         $(".athena-text-muted").html("<small>" + athena.healthPoints + "</small>");
                         $("#game-stats").html("Ares countered and did " + ares.counterAttackPower + " points of damage!");
@@ -479,7 +481,7 @@ $(document).ready(function reset() {
 
                     // Artemis vs. Poseidon - Counter
                     if ((poseidon.healthPoints >= 1) && (artemis.isCharacter) && (poseidon.isEnemy)) {
-                        artemis.attackPower = (artemis.attackPower + 7);
+                        artemis.attackPower = (artemis.attackPower + artemis.baseAttackPower);
                         artemis.healthPoints = (artemis.healthPoints - poseidon.counterAttackPower);
                         $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                         $("#game-stats").html("Poseidon countered and did " + poseidon.counterAttackPower + " points of damage!");
@@ -493,7 +495,7 @@ $(document).ready(function reset() {
 
                     // Artemis vs. Athena - Counter
                     if ((athena.healthPoints >= 1) && (artemis.isCharacter) && (athena.isEnemy)) {
-                        artemis.attackPower = (artemis.attackPower + 7);
+                        artemis.attackPower = (artemis.attackPower + artemis.baseAttackPower);
                         athena.healthPoints = (athena.healthPoints - artemis.counterAttackPower);
                         $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                         $("#game-stats").html("Athena countered and did " + athena.counterAttackPower + " points of damage!");
@@ -507,7 +509,7 @@ $(document).ready(function reset() {
 
                     // Artemis vs. Ares - Counter
                     if ((ares.healthPoints >= 1) && (artemis.isCharacter) && (ares.isEnemy)) {
-                        artemis.attackPower = (artemis.attackPower + 7);
+                        artemis.attackPower = (artemis.attackPower + artemis.baseAttackPower);
                         artemis.healthPoints = (artemis.healthPoints - ares.counterAttackPower);
                         $(".artemis-text-muted").html("<small>" + artemis.healthPoints + "</small>");
                         $("#game-stats").html("Ares countered and did " + ares.counterAttackPower + " points of damage!");
@@ -521,7 +523,7 @@ $(document).ready(function reset() {
 
                     // Ares vs. Poseidon - Counter
                     if ((poseidon.healthPoints >= 1) && (ares.isCharacter) && (poseidon.isEnemy)) {
-                        ares.attackPower = (ares.attackPower + 6);
+                        ares.attackPower = (ares.attackPower + ares.baseAttackPower);
                         ares.healthPoints = (ares.healthPoints - poseidon.counterAttackPower);
                         $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
                         $("#game-stats").html("Poseidon countered and did " + poseidon.counterAttackPower + " points of damage!");
@@ -535,7 +537,7 @@ $(document).ready(function reset() {
 
                     // Ares vs. Athena - Counter
                     if ((athena.healthPoints >= 1) && (ares.isCharacter) && (athena.isEnemy)) {
-                        ares.attackPower = (ares.attackPower + 6);
+                        ares.attackPower = (ares.attackPower + ares.baseAttackPower);
                         ares.healthPoints = (ares.healthPoints - athena.counterAttackPower);
                         $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
                         $("#game-stats").html("Athena countered and did " + athena.counterAttackPower + " points of damage!");
@@ -549,7 +551,7 @@ $(document).ready(function reset() {
 
                     // Ares vs. Artemis - Counter
                     if ((artemis.healthPoints >= 1) && (ares.isCharacter) && (artemis.isEnemy)) {
-                        ares.attackPower = (ares.attackPower + 6);
+                        ares.attackPower = (ares.attackPower + ares.baseAttackPower);
                         ares.healthPoints = (ares.healthPoints - artemis.counterAttackPower);
                         $(".ares-text-muted").html("<small>" + ares.healthPoints + "</small>");
                         $("#game-stats").html("Artemis countered and did " + artemis.counterAttackPower + " points of damage!");
